@@ -10,8 +10,8 @@ NUM3=20
 
 NAME=HEMANTH
 LASTNAME=KAIPA
-
-DECIMAL=$(echo "scale=1; $FLOAT1 + $NUM3" | bc)  # we can use awk command or echo ing and piping to bc(Basic calculator)
+decimal_places=1
+DECIMAL=$(echo "scale=$decimal_places; $FLOAT1 + $NUM3" | bc)  # we can use awk command or echo ing and piping to bc(Basic calculator)
 REALNUMS=$((NUM1+NUM2)) # $(()) only used for Arithmetic operations with natural numbers, floating doesn't support this.
 COMPLETENAME=$($NAME$LASTNAME) # JUST COMBINE THE VARS TO CONCATINATE
 
