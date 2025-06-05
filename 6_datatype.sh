@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# by default shell allocate datatype based on assignment
+
 
 NUM1=100
 NUM2=200
@@ -11,9 +11,9 @@ NUM3=20
 NAME=HEMANTH
 LASTNAME=KAIPA
 
-#DECIMAL=$((FLOAT1+NUM3))
-REALNUMS=$((NUM1+NUM2))
-COMPLETENAME=$((NAME+LASTNAME))
+DECIMAL=$(echo "$FLOAT1 + $NUM3" | bc)  # we can use awk command or echo ing and piping to bc(Basic calculator)
+REALNUMS=$((NUM1+NUM2)) # $(()) only used for Arithmetic operations with natural numbers, floating doesn't support this.
+COMPLETENAME=$($NAME$LASTNAME) # JUST COMBINE THE VARS TO CONCATINATE
 
 
 echo "sum of float and integer = $DECIMAL"
