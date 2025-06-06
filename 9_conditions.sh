@@ -10,10 +10,12 @@ fi
 
 read input
 
-if [ $input -eq "Hemanth" ]; then
+if [ "$input" == "Hemanth" ]; then
     echo "Age is 31"
-else [ $input -eq "Loke" ]; then
+elif [ "$input" == "Loke" ]; then
     echo "Age is 28"
+else
+    echo "No input matched"
 fi
 
 echo "input name is $input"
