@@ -19,3 +19,21 @@ else
 fi
 
 echo "input name is $input"
+
+echo "-----------------------------------------------"
+
+echo "calculator using switch / case in shell"
+
+
+echo "Enter numbers between 1 to 3 for Addition , Substraction, Multiplication"
+read NUM1
+echo "Enter input1"
+read input1
+echo "Enter input2"
+read input2
+
+case $NUM1 in
+    1) echo "SUM OF TWO NUMBERS = $(( $input1 + $input2 ))" ;;
+    2) echo "SUB OF TWO NUMBERS = $(( $input1 - $input2 ))";;
+    3) echo "MUL OF TWO NUMBER = $(( $input1 * $input2))";;
+esae
