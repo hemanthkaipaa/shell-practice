@@ -34,6 +34,6 @@ read input2
 
 case $NUM1 in
     1) echo "SUM OF TWO NUMBERS = $(( $input1 + $input2 ))" ;;
-    2) echo "SUB OF TWO NUMBERS = $(( $input1 - $input2 ))";;
-    3) echo "MUL OF TWO NUMBER = $(( $input1 * $input2))";;
+    2) echo "SUB OF TWO NUMBERS = $(( $input1 - $input2 ))" ;;
+    3) echo "MUL OF TWO NUMBER = $(( $input1 * $input2 ))" ;;
 esac
