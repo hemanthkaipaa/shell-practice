@@ -3,7 +3,7 @@
 echo "show all variables passed to the script : $@"
 echo "show number of variables passed to the script : $#"
 echo "Display script file name : $0"
-echo "present working directory : $pwd"
+echo "present working directory : $PWD"
 echo "home directory of the user : $HOME"
 echo "current user running the script : $USER"
 echo "PID of the current script :  $$"
