@@ -10,13 +10,13 @@ mkdir -p $LOG_DIR
 PACKAGES=(mysql nginx nodejs)
 
 VALIDATE_AND_INSTALL_PACKAGE(){
-    dnf list installed $1
+    dnf list installed $1 &>>$LOG_FILE
     local status=$?
     if [ $status == 0 ] ; then
         echo "module $1 already installed" | tee -a $LOG_FILE
     else 
         echo "Installing $1 module in progress" | tee -a $LOG_FILE
-        dnf install $1 -y
+        dnf install $1 -y &>>$LOG_FILE
     fi
 }
 
