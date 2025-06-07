@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source ./0_utils.sh
+
+APP=mysql
+
+VALIDATE_ROOT_USER
+VALIDATE_APP_EXIST $APP
+INSTALL_APP $APP
+VALIDATE_APP_INSTALL $APP
