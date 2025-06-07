@@ -24,13 +24,14 @@ dnf list installed $INSTALL_APP
 if [ $? == 0 ];then
     echo "$INSTALL_APP already installed"
     exit 0
-fi
-
-dnf install $INSTALL_APP -y
-echo "$INSTALL_APP installing is in progress ......."
-
-if [ $? == 0 ]; then
-    echo "$INSTALL_APP installed successfully with status $?"
 else 
-    echo "$INSTALL_APP installation failed with status $?"
+    dnf install $INSTALL_APP -y
+    echo "installing $INSTALL_APP in progress "
+    if [ $? == 0 ]; then
+        echo "$INSTALL_APP installed successfully with status $?"
+    else 
+        echo "$INSTALL_APP installation failed with status $?"
+    fi
 fi
+
+
