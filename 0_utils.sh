@@ -41,9 +41,9 @@ INSTALL_APP(){
 VALIDATE_APP_INSTALL_STATUS(){
     if [ $? == 0 ]; then
         echo -e "$Y "$1" $N $G Install successful$N"
-        exit 1
     else 
          echo -e "$R  Error $N : $Y "$1" $N App Install failed"
+         exit 1
     fi
 }
 
