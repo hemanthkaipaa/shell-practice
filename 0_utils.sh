@@ -14,6 +14,7 @@ VALIDATE_ROOT_USER(){
         echo -e "$G Running as a root user $N"
     else
         echo -e "$R failed to proceed not a root user $N"
+        exit 1
     fi
 }
 
