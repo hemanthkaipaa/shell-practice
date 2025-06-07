@@ -15,7 +15,7 @@ echo "exit status $? "
 
 dnf install mysql -y
 
-if [$? == 0]; then
+if [ $? == 0 ]; then
     echo "mysql installed successfully with status $?"
 else 
     echo "mysql installation failed with status $?"
