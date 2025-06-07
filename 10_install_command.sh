@@ -13,10 +13,20 @@ fi
 
 echo "exit status $? "
 
-dnf install mysql -y
+INSTALL_APP=mysql
+
+dnf list installed mysql
+
+if [ $? == 0 ];then
+    echo "$INSTALL_APP already installed"
+    exit 0
+fi
+
+dnf install $INSTALL_APP -y
+echo "$INSTALL_APP installing is in progress ......."
 
 if [ $? == 0 ]; then
-    echo "mysql installed successfully with status $?"
+    echo "$INSTALL_APP installed successfully with status $?"
 else 
-    echo "mysql installation failed with status $?"
+    echo "$INSTALL_APP installation failed with status $?"
 fi
