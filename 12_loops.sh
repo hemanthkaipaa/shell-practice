@@ -5,9 +5,33 @@ LOG_FILE=$LOG_DIR/$SCRIPT_FILE.log
 
 echo "$SCRIPT_FILE"
 mkdir -p $LOG_DIR
+
 #Loops
-APPS_TO_INSTALL=(mysql nginx nodejs)
-for i in "${APPS_TO_INSTALL[@]}" ; do
-    echo -e "\e[32m $i" | tee -a $LOG_FILE
+PACKAGES=(mysql nginx nodejs)
+
+CHECK_ROOT_USER
+
+for i in "${PACKAGES[@]}" ; do
+    VALIDATE_AND_INSTALL_PACKAGE $i
 done
+
+VALIDATE_AND_INSTALL_PACKAGE(){
+    dnf list installed $1
+    local status=$?
+    if [ $status == 0 ] ; then
+        echo "module $1 already installed" | tee -a $LOG_FILE
+    else 
+        echo "Installing $1 module in progress" | tee -a $LOG_FILE
+        dnf install $1 -y
+    fi
+}
+
+CHECK_ROOT_USER(){
+    if [ $(id -u) == 0 ] ; then
+        echo "Running as rootuser" | tee -a $LOG_FILE
+    else 
+        echo "your are not a rootuser, permission denied" | tee -a $LOG_FILE
+        exit 1
+    fi
+}
 
