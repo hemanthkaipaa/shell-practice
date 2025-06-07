@@ -19,4 +19,4 @@ if [$? == 0]; then
     echo "mysql installed successfully with status $?"
 else 
     echo "mysql installation failed with status $?"
-    
+fi
