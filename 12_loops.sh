@@ -9,6 +9,12 @@ mkdir -p $LOG_DIR
 #Loops
 PACKAGES=(mysql nginx nodejs)
 
+CHECK_ROOT_USER
+
+for i in "${PACKAGES[@]}" ; do
+    VALIDATE_AND_INSTALL_PACKAGE $i
+done
+
 VALIDATE_AND_INSTALL_PACKAGE(){
     dnf list installed $1 &>>$LOG_FILE
     local status=$?
@@ -28,10 +34,4 @@ CHECK_ROOT_USER(){
         exit 1
     fi
 }
-
-CHECK_ROOT_USER
-
-for i in "${PACKAGES[@]}" ; do
-    VALIDATE_AND_INSTALL_PACKAGE $i
-done
 
