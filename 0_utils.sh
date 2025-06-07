@@ -24,16 +24,26 @@ VALIDATE_APP_EXIST(){
 
 # 1 = app name
 VALIDATE_STATUS(){
-    if [ $? != 0 ];then
-        echo -e "$R  Error $N : $Y $1 $N App already installed"
+    if [ $? == 0 ]; then
+        echo -e "$R  Error $N : $Y "$1" $N App already installed"
         exit 1
     else 
-        echo -e "$Y $1 $N $G Install in in progress..$N"
+        echo -e "$Y "$1" $N $G Install in in progress..$N"
     fi
 }
 
 #function to install app
 INSTALL_APP(){
     dnf install $1 -y
+}
+
+
+VALIDATE_APP_INSTALL_STATUS(){
+    if [ $? == 0 ]; then
+        echo -e "$Y "$1" $N $G Install successful$N"
+        exit 1
+    else 
+         echo -e "$R  Error $N : $Y "$1" $N App Install failed"
+    fi
 }
 
