@@ -13,9 +13,13 @@ fi
 
 echo "exit status $? "
 
-INSTALL_APP=mysql
 
-dnf list installed mysql
+INSTALL_APP=$1
+if [[ "$1" == "" ]];then
+    INSTALL_APP="mysql"
+
+
+dnf list installed $INSTALL_APP
 
 if [ $? == 0 ];then
     echo "$INSTALL_APP already installed"
