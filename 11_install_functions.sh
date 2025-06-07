@@ -2,7 +2,7 @@
 
 source ./0_utils.sh
 
-APP=mysql
+APP=$1
 
 VALIDATE_ROOT_USER
 VALIDATE_APP_EXIST $APP
