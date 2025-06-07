@@ -17,7 +17,7 @@ echo "exit status $? "
 INSTALL_APP=$1
 if [[ "$1" == "" ]];then
     INSTALL_APP="mysql"
-
+fi
 
 dnf list installed $INSTALL_APP
 
